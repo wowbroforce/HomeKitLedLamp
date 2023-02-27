@@ -3,18 +3,18 @@
 #include <EEPROM.h>
 #include <arduino_homekit_server.h>
 
-// MiFi Manager
+// WiFi Manager
 #define AC_SSID "HomeKitLedLamp"
 #define AC_PASS "11111111"
 
 // LED
-#define BRIGHTNESS 40         // стандартная маскимальная яркость (0-255)
-#define CURRENT_LIMIT 2000    // лимит по току в миллиамперах, автоматически управляет яркостью (пожалей свой блок питания!) 0 - выключить лимит
-#define LED_PIN D4             // пин ленты
-#define COLOR_ORDER GRB       // порядок цветов на ленте. Если цвет отображается некорректно - меняйте. Начать можно с RGB
-#define WIDTH 16              // ширина матрицы
-#define HEIGHT 16             // высота матрицы
-#define NUM_LEDS WIDTH * HEIGHT
+#define BRIGHTNESS 40           // default brightness (0-255)
+#define CURRENT_LIMIT 2000      // limit how much current in milliamps the LED matrix will pull from the power supply. Bigger value -> brigher light and more heat from leds and PSU. 0 - no limit, but you should check if your PSU can handle it.
+#define LED_PIN D4              // LED pin
+#define COLOR_ORDER GRB         // the order of color components on the leds.
+#define WIDTH 16                // matrix width
+#define HEIGHT 16               // matrix height
+#define NUM_LEDS WIDTH * HEIGHT // total number of leds
 // EEPROM
 #define ON_OFF_STATE 200
 #define HUE_STATE 201
