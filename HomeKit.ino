@@ -39,7 +39,7 @@ void setupHomeKit() {
   Serial.println("Reading HomeKit saved values from EEPROM...");
 
   restoreHomeKitValues();
-  updateColors();
+  updateColor();
 
   Serial.println("Done reading HomeKit saved values");
 }
@@ -57,9 +57,13 @@ void updateHomeKit() {
 void restoreHomeKitValues() {
   // read and convert values
   is_on = EEPROM.read(ON_OFF_STATE);
+  Serial.print(" - > ON_OFF_STATE = "); Serial.println(is_on);
   current_hue = EEPROM.read(HUE_STATE) / 255.0 * 360.0;
+  Serial.print(" - > HUE_STATE = "); Serial.println(current_hue);
   current_sat = EEPROM.read(SAT_STATE) / 255.0 * 100.0;
+  Serial.print(" - > SAT_STATE = "); Serial.println(current_sat);
   current_brightness = EEPROM.read(VAL_STATE) / 255.0 * 100.0;
+  Serial.print(" - > VAL_STATE = "); Serial.println(current_brightness);
   
   // sync values
   cha_on.value.bool_value = is_on;
